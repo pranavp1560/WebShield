@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions</title>
+    <!-- Link to CSS in static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='faq.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <img src="{{ url_for('static', filename='image/logo.png') }}" alt="WebShield Logo">
+        <span>WebShield</span>
+    </div>
+    <div class="navbar-toggle" onclick="toggleMenu()">☰</div>
+    <div class="navbar-links" id="navbar-links">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        
+    </div>
+</nav>
+
+    <header>
+        <img src="{{ url_for('static', filename='image/FaQ.png') }}" alt="FAQ">
+    </header>
+
+
+    <section class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">What is a phishing website?</button>
+            <div class="faq-answer">
+                <p>A phishing website is a fake website designed to steal sensitive information such as usernames, passwords, and credit card details from unsuspecting users.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does a phishing website work?</button>
+            <div class="faq-answer">
+                <p>Phishing websites trick users into entering personal information by mimicking trusted websites.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What are some common signs of a phishing website?</button>
+            <div class="faq-answer">
+                <p>Look for mismatched URLs, poor grammar, suspicious requests for sensitive data, and unsecure connections.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I protect myself from phishing websites?</button>
+            <div class="faq-answer">
+                <p>Use security software, double-check URLs, avoid clicking suspicious links, and never enter credentials on untrusted pages.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What are some tools for detecting phishing websites?</button>
+            <div class="faq-answer">
+                <p>Tools like browser security extensions, antivirus software, and phishing detection websites can help you stay safe.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What should I do if I think I have fallen victim to a phishing website?</button>
+            <div class="faq-answer">
+                <p>Immediately change your passwords, notify your bank if necessary, and report the phishing attempt to authorities or cybersecurity experts.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='image/logo.png') }}" alt="logo">
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">© 2025 WebShield. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const links = document.getElementById("navbar-links");
+            links.classList.toggle("active");
+        }
+        </script>
+        
+</body>
+</html>

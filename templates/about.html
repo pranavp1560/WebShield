@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | WebShield</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: #00d4ff;
+        }
+
+        .about-section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about-section h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 300px;
+            flex: 1 1 280px;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-box h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .about-section h1 {
+                font-size: 28px;
+            }
+            .about-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='image/logo.png') }}" alt="WebShield Logo">
+            WebShield
+        </div>
+        <div>
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h1>About WebShield</h1>
+        <p><strong>WebShield</strong> is a smart, AI-powered platform built to help users quickly identify whether a website is real or a phishing trap.</p>
+        <p>Every day, thousands of people fall victim to fake websites designed to steal personal data. WebShield analyzes URLs using intelligent models that examine link patterns, structures, and hidden markers to determine their legitimacy.</p>
+        <p>Our mission is to create a safer internet where users can browse with confidence and avoid online scams with ease.</p>
+
+        <div class="features">
+            <div class="feature-box">
+                <h3>🔐 AI-Powered Detection</h3>
+                <p>Our backend leverages machine learning to analyze website URLs and detect malicious behavior.</p>
+            </div>
+            <div class="feature-box">
+                <h3>⚡ Real-Time Scanning</h3>
+                <p>Instantly check if a site is suspicious before clicking or sharing it with anyone.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📊 Confidence Score</h3>
+                <p>We provide a clear percentage of how likely a site is to be safe or a phishing attempt.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🌐 Free & Accessible</h3>
+                <p>WebShield is completely free to use—no account or login required. Just paste the link and scan!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">&copy; 2025 WebShield. All Rights Reserved.</div>
+
+</body>
+</html>

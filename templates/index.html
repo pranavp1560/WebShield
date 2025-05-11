@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='image/logo.png') }}" alt="logo">
+            <span>WebShield</span>
+        </div>
+        <div>
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            
+        </div>
+    </div>
+
+    <div class="slider">
+        <img src="{{ url_for('static', filename='image/1.jpeg') }}" class="slide" style="opacity: 1;">
+        <img src="{{ url_for('static', filename='image/2.jpeg') }}" class="slide">
+        <img src="{{ url_for('static', filename='image/3.jpeg') }}" class="slide">
+    </div>
+
+    <div class="container">
+        <h2>Fake Website Detector</h2>
+        <form action="/" method="POST">
+        <input type="text" name="url" id="website" placeholder="Enter website URL..." required>
+        <button >Check</button>
+    </form>
+        <div class="result" id="result"></div>
+  
+    </div>
+
+    {% if url %}
+    <tr>
+        <td class="text-center py-4">
+            <h6><a href="{{ url }}" target="_blank">{{ url }}</a></h6>
+            <h3 id="prediction"></h3>
+            <button class="button1 mt-2" id="button1" style="display: none;" onclick="window.open('{{ url }}')">Continue</button>
+            <button class="button2 mt-2" id="button2" style="display: none;" onclick="window.open('{{ url }}')">Still want to Continue</button>
+        </td>
+    </tr>
+    {% endif %}
+
+     <div class="footer">&copy; 2025 WebShield. All Rights Reserved.</div> 
+   
+
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Start the first image
+        slides[currentSlide].classList.add('active');
+        
+        // Change image every 4 seconds
+        setInterval(showNextSlide, 4000);
+        </script>
+        
+        
+
+    <!-- Prediction Script -->
+    {% if xx is defined %}
+    <script>
+        let x = {{ xx }};
+        let percentage = (x * 100).toFixed(2);
+        const prediction = document.getElementById("prediction");
+        if (x >= 0.7) {
+            prediction.innerHTML = `<span style="color: limegreen; font-weight: bold;">This is a legitimate website</span><br>Website is ${percentage}% safe to use...`;
+            document.getElementById("button1").style.display = "inline-block";
+        } else {
+            prediction.innerHTML = `<span style="color: red; font-weight: bold;">This is a phishing website</span><br>Website is ${(100 - x * 100).toFixed(2)}% unsafe to use...`;
+            document.getElementById("button2").style.display = "inline-block";
+        }
+    </script>
+{% endif %}
+
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

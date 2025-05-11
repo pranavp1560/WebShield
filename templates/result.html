@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Analysis Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url('/static/image/1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(247, 247, 247, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: auto;
+            margin-top: 100px;
+            color: #000;
+        }
+
+        h2 {
+            color: #222;
+        }
+
+        p {
+            color: #042c06;
+            font-size: 16px;
+            margin: 10px 0;
+            word-wrap: break-word;
+        }
+
+        .safe {
+            color: green;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .phishing {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 15px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #777;
+        }
+
+        .back-button:hover {
+            background-color: #222;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 10px;
+            }
+
+            .container {
+                padding: 20px 15px;
+                margin-top: 60px;
+            }
+
+            .button {
+                font-size: 15px;
+                padding: 14px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Scanned URL:</h2>
+        <p>{{ url }}</p>
+
+        <h2>Prediction Result:</h2>
+        {% if xx >= 0.5 %}
+            <p class="safe">✅ Safe to browse (Confidence: {{ (xx * 100)|round(2) }}%)</p>
+            <a href="{{ url }}" class="button" target="_blank">Continue to Website</a>
+        {% else %}
+            <p class="phishing">❌ This might be a Phishing website (Confidence: {{ ((1 - xx) * 100)|round(2) }}%)</p>
+        {% endif %}
+
+        <a href="/" class="button back-button">Back to Home</a>
+    </div>
+</body>
+</html>

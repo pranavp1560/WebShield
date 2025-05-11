@@ -1,0 +1,31 @@
+*{
+    background-color:rgb(20, 20, 84);
+}
+.container{
+    width: 100%;
+    
+}
+.shield img{
+    width: 30%;
+    height: 30%;
+    margin-top: 70px;
+    padding-left: 50px;
+}
+.nav-bar img{
+    width: 10%;
+    height: 10%;
+    margin-top: 5px;
+    margin-left: 1px;
+}
+.nav-bar{
+    display:flex
+}
+.menu{
+    display: flex;
+}
+.nav-bar .left-nav{
+    margin-left: 50px;
+}
+.nav-bar .right-nav{
+    margin-right: 5px;
+}
